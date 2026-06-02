@@ -1,0 +1,53 @@
+# Runtime and dependency folders
+node_modules/
+target/
+build/
+dist/
+.vite/
+.turbo/
+
+# Java / Spring Boot
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+out/
+
+# Node / frontend
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python helper caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+
+# Logs and temporary files
+logs/
+*.log
+tmp/
+temp/
+
+# Generated QA previews
+deliverables/rendered-docx/
