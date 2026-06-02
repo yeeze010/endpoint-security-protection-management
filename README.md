@@ -14,12 +14,41 @@
 
 ## 当前交付物
 
+- `backend/`：Spring Boot 后端接口服务
+- `frontend/`：Vue 3 + TypeScript 管理后台
+- `infra/`：Docker Compose 与 Nginx 部署配置
+- `.github/workflows/ci.yml`：GitHub Actions 检查流程
 - `deliverables/终端安全防护管理平台_项目交付方案.docx`
 - `deliverables/终端安全防护管理平台_开发排期分工测试用例.xlsx`
 - `diagram/endpoint-security-platform/system-architecture.svg`
 - `diagram/endpoint-security-platform/business-flow.svg`
 - `diagram/endpoint-security-platform/data-flow.svg`
 - `docs/GIT_GITHUB_VERSION_MANAGEMENT.md`
+- `docs/DEVELOPMENT.md`
+
+## 快速启动
+
+后端：
+
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+前端：
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Docker:
+
+```bash
+cd infra
+docker compose up -d --build
+```
 
 ## 分支模型
 
