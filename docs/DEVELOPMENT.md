@@ -2,6 +2,23 @@
 
 ## 本地开发
 
+### 一键启动
+
+Windows 环境推荐直接执行：
+
+```powershell
+.\scripts\start-local.ps1
+```
+
+脚本会自动完成：
+
+- 检查 JDK 21
+- 准备项目内 Maven
+- 构建并启动后端
+- 安装前端依赖
+- 构建并启动前端
+- 检查健康接口和前端 API 代理
+
 ### 后端
 
 ```bash
@@ -24,9 +41,9 @@ npm run dev
 
 前端默认地址：
 
-- `http://localhost:5173`
+- `http://localhost:55300`
 
-Vite 已将 `/api` 代理到 `http://localhost:8080`。
+Vite 已将 `/api` 代理到 `http://localhost:8080`。本项目使用 `55300` 作为默认开发端口，避免和其它本地 Vite 项目常用的 `5173`、`5174` 冲突。
 
 ## Docker 部署
 

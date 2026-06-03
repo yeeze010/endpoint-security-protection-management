@@ -28,6 +28,12 @@
 
 ## 快速启动
 
+Windows 本地一键启动：
+
+```powershell
+.\scripts\start-local.ps1
+```
+
 后端：
 
 ```bash

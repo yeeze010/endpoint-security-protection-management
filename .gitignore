@@ -5,6 +5,7 @@ build/
 dist/
 .vite/
 .turbo/
+.tools/
 
 # Java / Spring Boot
 *.class
