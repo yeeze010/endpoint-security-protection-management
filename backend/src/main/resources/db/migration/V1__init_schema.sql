@@ -74,6 +74,27 @@ CREATE TABLE IF NOT EXISTS incident_tickets (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE TABLE IF NOT EXISTS response_playbooks (
+    id UUID PRIMARY KEY,
+    alert_id UUID NOT NULL REFERENCES security_alerts(id),
+    endpoint_id UUID NOT NULL REFERENCES endpoints(id),
+    recommended_policy_id UUID REFERENCES policies(id),
+    isolation_required BOOLEAN NOT NULL DEFAULT FALSE,
+    estimated_minutes INTEGER NOT NULL DEFAULT 0,
+    status VARCHAR(30) NOT NULL DEFAULT 'draft',
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS response_actions (
+    id UUID PRIMARY KEY,
+    playbook_id UUID NOT NULL REFERENCES response_playbooks(id) ON DELETE CASCADE,
+    title VARCHAR(200) NOT NULL,
+    owner_role VARCHAR(80) NOT NULL,
+    status VARCHAR(30) NOT NULL DEFAULT 'pending',
+    order_no INTEGER NOT NULL DEFAULT 0,
+    completed_at TIMESTAMPTZ
+);
+
 CREATE TABLE IF NOT EXISTS audit_logs (
     id UUID PRIMARY KEY,
     actor_id UUID REFERENCES users(id),
@@ -89,4 +110,5 @@ CREATE TABLE IF NOT EXISTS audit_logs (
 CREATE INDEX IF NOT EXISTS idx_endpoints_org ON endpoints(org_id);
 CREATE INDEX IF NOT EXISTS idx_endpoints_risk ON endpoints(risk_level, risk_score);
 CREATE INDEX IF NOT EXISTS idx_alerts_status ON security_alerts(status, severity);
+CREATE INDEX IF NOT EXISTS idx_response_playbooks_alert ON response_playbooks(alert_id);
 CREATE INDEX IF NOT EXISTS idx_audit_created_at ON audit_logs(created_at DESC);
