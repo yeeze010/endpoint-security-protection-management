@@ -5,6 +5,16 @@ import { alerts, endpoints, initialPolicies } from './data';
 
 const route = useRoute();
 const navOpen = ref(false);
+const authenticated = ref(false);
+const loginBusy = ref(false);
+const operator = ref('sec.ops');
+const currentRole = ref('安全管理员');
+const roleProfiles: Record<string, string> = {
+  安全管理员: '策略发布、隔离处置、Agent 部署',
+  安全运营员: '告警研判、终端取证、批量整改',
+  合规审计员: '报表导出、审计日志、验收证据',
+  终端运维员: '补丁维护、软件白名单、设备控制'
+};
 
 const pageTitle = computed(() => String(route.meta.title ?? '安全态势'));
 const urgentAlertCount = computed(
@@ -58,11 +68,52 @@ watch(
     navOpen.value = false;
   }
 );
+
+function login() {
+  loginBusy.value = true;
+  window.setTimeout(() => {
+    authenticated.value = true;
+    loginBusy.value = false;
+  }, 360);
+}
+
+function logout() {
+  authenticated.value = false;
+  navOpen.value = false;
+}
 </script>
 
 <template>
   <a class="skip-link" href="#main-content">跳转到主内容</a>
-  <div class="app-shell">
+  <main v-if="!authenticated" class="login-shell">
+    <form class="login-card" @submit.prevent="login">
+      <div class="brand">
+        <div class="brand-mark">ES</div>
+        <div class="brand-copy">
+          <strong>终端安全防护管理平台</strong>
+          <span>登录后进入终端资产、策略、告警和合规报表</span>
+        </div>
+      </div>
+      <label>
+        <span>账号</span>
+        <input v-model="operator" autocomplete="username" required />
+      </label>
+      <label>
+        <span>密码</span>
+        <input type="password" autocomplete="current-password" value="demo-pass" required />
+      </label>
+      <label>
+        <span>进入角色</span>
+        <select v-model="currentRole">
+          <option v-for="(_, role) in roleProfiles" :key="role">{{ role }}</option>
+        </select>
+      </label>
+      <button class="button primary" type="submit" :disabled="loginBusy">
+        {{ loginBusy ? '登录中' : '登录工作台' }}
+      </button>
+    </form>
+  </main>
+  <div v-else class="app-shell">
     <div v-if="navOpen" class="nav-scrim" @click="navOpen = false"></div>
 
     <aside class="sidebar" :class="{ open: navOpen }" aria-label="主导航">
@@ -79,10 +130,10 @@ watch(
 
       <div class="status-card">
         <div class="status-card-top">
-          <span class="status-pill">策略基线正常</span>
-          <strong>{{ onlineRate }}</strong>
+          <span class="status-pill">当前角色</span>
+          <strong>{{ currentRole }}</strong>
         </div>
-        <p>当前风险集中在研发和运维域，建议先收敛高危告警再推进补丁窗口。</p>
+        <p>{{ roleProfiles[currentRole] }}</p>
         <dl>
           <div>
             <dt>严重 / 高风险告警</dt>
@@ -132,8 +183,13 @@ watch(
             <h1>{{ pageTitle }}</h1>
           </div>
           <div class="topbar-brief">
-            <span class="status-pill">优先级 P1</span>
-            <strong>先清告警，再做验收</strong>
+            <label class="role-switcher">
+              <span>角色</span>
+              <select v-model="currentRole">
+                <option v-for="(_, role) in roleProfiles" :key="role">{{ role }}</option>
+              </select>
+            </label>
+            <button class="button secondary" type="button" @click="logout">退出</button>
           </div>
         </div>
 

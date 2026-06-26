@@ -57,6 +57,41 @@ a {
   min-height: 100dvh;
 }
 
+.login-shell {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(500px, 100%);
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+}
+
+.login-card label,
+.role-switcher {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.login-card input,
+.login-card select,
+.role-switcher select {
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--text);
+}
+
 .skip-link {
   position: absolute;
   left: 16px;
@@ -347,6 +382,11 @@ a {
   justify-items: end;
 }
 
+.role-switcher {
+  grid-template-columns: auto minmax(132px, 1fr);
+  align-items: center;
+}
+
 .topbar-brief strong {
   font-size: 0.95rem;
 }
@@ -459,6 +499,17 @@ a {
 .button:disabled {
   opacity: 0.42;
   cursor: not-allowed;
+}
+
+.button:active,
+.nav-toggle:active,
+.nav-close:active,
+.nav-group a:active,
+.control-metrics button:active,
+.alert-list button:active,
+.factor-grid button:active,
+.link-button:active {
+  transform: translateY(1px);
 }
 
 .button:focus-visible,
