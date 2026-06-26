@@ -1,41 +1,27 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { AuditLog, request } from '../api';
-import DataState from '../components/DataState.vue';
-
-const logs = ref<AuditLog[]>([]);
-const loading = ref(true);
-const error = ref('');
-
-onMounted(async () => {
-  try {
-    logs.value = await request<AuditLog[]>('/api/audit-logs');
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : '加载失败';
-  } finally {
-    loading.value = false;
-  }
-});
+import PageHeader from '../components/PageHeader.vue';
+import { auditLogs } from '../data';
 </script>
 
 <template>
   <section class="page">
-    <div class="page-title">
-      <div>
-        <h2>审计日志</h2>
-        <p>追踪登录、策略、处置、导出和系统配置操作。</p>
-      </div>
-      <button class="secondary-button">导出审计日志</button>
-    </div>
+    <PageHeader
+      code="SEC-08"
+      title="审计日志"
+      description="追踪策略、告警、报表、权限和终端处置动作。"
+    >
+      <button class="button secondary">导出日志</button>
+    </PageHeader>
 
-    <DataState :loading="loading" :error="error" :empty="logs.length === 0">
-      <div class="timeline">
-        <article v-for="log in logs" :key="log.id" class="timeline-item">
-          <time>{{ new Date(log.createdAt).toLocaleString() }}</time>
-          <strong>{{ log.actor }} {{ log.action }}</strong>
-          <span>{{ log.resource }} · {{ log.ip }}</span>
-        </article>
-      </div>
-    </DataState>
+    <div class="audit-list">
+      <article v-for="log in auditLogs" :key="`${log.time}-${log.actor}-${log.target}`">
+        <time>{{ log.time }}</time>
+        <div>
+          <strong>{{ log.actor }} · {{ log.action }}</strong>
+          <span>{{ log.target }}</span>
+        </div>
+        <div class="audit-result">{{ log.result }}</div>
+      </article>
+    </div>
   </section>
 </template>

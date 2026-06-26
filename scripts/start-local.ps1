@@ -6,6 +6,8 @@ $frontendDir = Join-Path $root "frontend"
 $toolsDir = Join-Path $root ".tools"
 $mavenHome = Join-Path $toolsDir "apache-maven-3.9.9"
 $mavenZip = Join-Path $toolsDir "apache-maven-3.9.9-bin.zip"
+$apiPort = 8203
+$webPort = 5203
 
 function Find-JavaHome {
     if ($env:JAVA_HOME -and (Test-Path (Join-Path $env:JAVA_HOME "bin\java.exe"))) {
@@ -68,7 +70,7 @@ try {
     Pop-Location
 }
 
-$backendPort = Get-NetTCPConnection -LocalPort 8080 -State Listen -ErrorAction SilentlyContinue
+$backendPort = Get-NetTCPConnection -LocalPort $apiPort -State Listen -ErrorAction SilentlyContinue
 if (!$backendPort) {
     $backendLog = Join-Path $backendDir "target\backend-run.log"
     $backendErr = Join-Path $backendDir "target\backend-run.err.log"
@@ -80,7 +82,7 @@ if (!$backendPort) {
         -WindowStyle Hidden
 }
 
-Wait-HttpOk "http://localhost:8080/actuator/health" "backend"
+Wait-HttpOk "http://localhost:$apiPort/actuator/health" "backend"
 
 Push-Location $frontendDir
 try {
@@ -92,26 +94,26 @@ try {
     Pop-Location
 }
 
-$frontendPort = Get-NetTCPConnection -LocalPort 55300 -State Listen -ErrorAction SilentlyContinue
+$frontendPort = Get-NetTCPConnection -LocalPort $webPort -State Listen -ErrorAction SilentlyContinue
 if (!$frontendPort) {
-    $frontendLog = Join-Path $frontendDir "frontend-55300.log"
-    $frontendErr = Join-Path $frontendDir "frontend-55300.err.log"
+    $frontendLog = Join-Path $frontendDir "frontend-5203.log"
+    $frontendErr = Join-Path $frontendDir "frontend-5203.err.log"
     Start-Process -FilePath "npm.cmd" `
-        -ArgumentList "run", "dev", "--", "--host", "127.0.0.1", "--port", "55300", "--strictPort" `
+        -ArgumentList "run", "dev", "--", "--host", "127.0.0.1" `
         -WorkingDirectory $frontendDir `
         -RedirectStandardOutput $frontendLog `
         -RedirectStandardError $frontendErr `
         -WindowStyle Hidden
 }
 
-Wait-HttpOk "http://localhost:55300/dashboard" "frontend"
+Wait-HttpOk "http://localhost:$webPort/dashboard" "frontend"
 
-$api = Invoke-RestMethod -Uri "http://localhost:55300/api/endpoints" -TimeoutSec 5
+$api = Invoke-RestMethod -Uri "http://localhost:$webPort/api/endpoints" -TimeoutSec 5
 if (!$api.success -or $api.data.Count -lt 1) {
     throw "Frontend proxy API check failed."
 }
 
 Write-Host "Run completed:"
-Write-Host "  Frontend: http://localhost:55300"
-Write-Host "  Backend: http://localhost:8080"
-Write-Host "  Health: http://localhost:8080/actuator/health"
+Write-Host "  Frontend: http://localhost:$webPort"
+Write-Host "  Backend: http://localhost:$apiPort"
+Write-Host "  Health: http://localhost:$apiPort/actuator/health"

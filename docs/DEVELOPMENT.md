@@ -28,8 +28,8 @@ mvn spring-boot:run
 
 后端默认地址：
 
-- API: `http://localhost:8080/api`
-- 健康检查: `http://localhost:8080/actuator/health`
+- API: `http://localhost:8203/api`
+- 健康检查: `http://localhost:8203/actuator/health`
 
 ### 前端
 
@@ -41,9 +41,9 @@ npm run dev
 
 前端默认地址：
 
-- `http://localhost:55300`
+- `http://localhost:5203`
 
-Vite 已将 `/api` 代理到 `http://localhost:8080`。本项目使用 `55300` 作为默认开发端口，避免和其它本地 Vite 项目常用的 `5173`、`5174` 冲突。
+Vite 已将 `/api` 代理到 `http://localhost:8203`。本项目固定使用 `5203` 作为开发端口、`6203` 作为预览端口，并启用 `strictPort`，端口冲突时直接失败。
 
 ## Docker 部署
 
@@ -55,7 +55,7 @@ docker compose up -d --build
 部署后访问：
 
 - 平台入口：`http://localhost`
-- 前端容器直连：`http://localhost:5174`
+- Docker 统一入口：`http://localhost:5203`
 - 后端健康检查：`http://localhost/actuator/health`
 - MinIO 控制台：`http://localhost:9001`
 

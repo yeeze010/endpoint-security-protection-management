@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineProps<{ value: string }>();
+import type { RiskLevel } from '../data';
+
+defineProps<{ value: RiskLevel }>();
 </script>
 
 <template>
