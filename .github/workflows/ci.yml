@@ -72,6 +72,6 @@ jobs:
           test -f .github/ISSUE_TEMPLATE/bug_report.md
           test -f .github/ISSUE_TEMPLATE/feature_request.md
           test -f .github/PULL_REQUEST_TEMPLATE.md
-          test -f deliverables/终端安全防护管理平台_项目交付方案.docx
-          test -f deliverables/终端安全防护管理平台_开发排期分工测试用例.xlsx
+          test -f deliverables/计算机终端安全防护管理系统_项目交付方案.docx
+          test -f deliverables/计算机终端安全防护管理系统_开发排期分工测试用例.xlsx
           test -f diagram/endpoint-security-platform/system-architecture.svg

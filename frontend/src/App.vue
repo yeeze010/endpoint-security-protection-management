@@ -88,10 +88,10 @@ function logout() {
   <main v-if="!authenticated" class="login-shell">
     <form class="login-card" @submit.prevent="login">
       <div class="brand">
-        <div class="brand-mark">ES</div>
+        <div class="brand-mark" aria-hidden="true"></div>
         <div class="brand-copy">
-          <strong>终端安全防护管理平台</strong>
-          <span>登录后进入终端资产、策略、告警和合规报表</span>
+          <strong>计算机终端安全防护管理系统</strong>
+          <span>版本号 V1.0</span>
         </div>
       </div>
       <label>
@@ -119,10 +119,10 @@ function logout() {
     <aside class="sidebar" :class="{ open: navOpen }" aria-label="主导航">
       <div class="sidebar-head">
         <div class="brand">
-          <div class="brand-mark">ES</div>
+          <div class="brand-mark" aria-hidden="true"></div>
           <div class="brand-copy">
-            <strong>终端安全防护管理平台</strong>
-            <span>Endpoint Security Operations Console</span>
+            <strong>计算机终端安全防护管理系统</strong>
+            <span>版本号 V1.0</span>
           </div>
         </div>
         <button class="nav-close" type="button" @click="navOpen = false">关闭导航</button>

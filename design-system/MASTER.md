@@ -2,7 +2,7 @@
 
 ## Product
 
-终端安全防护管理平台 is a Swiss endpoint security operations console for endpoint inventory, policy rollout, alerts, evidence, and compliance reporting. Endpoint data is hidden until login.
+计算机终端安全防护管理系统 is a Swiss endpoint security operations console for endpoint inventory, policy rollout, alerts, evidence, and compliance reporting. Endpoint data is hidden until login.
 
 ## Visual System
 

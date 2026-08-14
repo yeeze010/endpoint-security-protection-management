@@ -20,13 +20,13 @@ OUT.mkdir(parents=True, exist_ok=True)
 DIAGRAM.mkdir(parents=True, exist_ok=True)
 
 
-PROJECT = "终端安全防护管理平台"
+PROJECT = "计算机终端安全防护管理系统"
 START = date(2026, 6, 8)
 
 
 sections = {
     "项目概述": [
-        "本项目建设一套面向企业内网、政企单位与多分支机构的终端安全防护管理平台，统一纳管 Windows、Linux、macOS 等终端资产及其安全代理，实现资产可视、策略可控、风险可查、告警可处置、审计可追溯。",
+        "本项目建设一套面向企业内网、政企单位与多分支机构的计算机终端安全防护管理系统，统一纳管 Windows、Linux、macOS 等终端资产及其安全代理，实现资产可视、策略可控、风险可查、告警可处置、审计可追溯。",
         "平台采用 B/S 管理后台 + 终端 Agent + 后端服务集群架构。管理后台面向安全运营、系统管理员和审计人员；Agent 负责终端基线采集、策略执行、威胁事件上报、补丁任务执行与文件隔离；后端负责租户、权限、策略、资产、告警、任务、报表和审计等核心能力。"
     ],
     "建设目标": [
@@ -326,7 +326,7 @@ def build_docx():
         "上线前必须完成：部署演练、数据备份恢复演练、账号权限抽检、审计日志抽检、性能压测报告。"
     ])
 
-    path = OUT / "终端安全防护管理平台_项目交付方案.docx"
+    path = OUT / "计算机终端安全防护管理系统_项目交付方案.docx"
     doc.save(path)
     return path
 
@@ -415,7 +415,7 @@ def build_xlsx():
     style_sheet(ws)
     add_excel_table(ws, "RiskTable")
 
-    path = OUT / "终端安全防护管理平台_开发排期分工测试用例.xlsx"
+    path = OUT / "计算机终端安全防护管理系统_开发排期分工测试用例.xlsx"
     wb.save(path)
 
     # Verification pass: reopen generated workbook.

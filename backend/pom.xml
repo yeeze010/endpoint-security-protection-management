@@ -14,8 +14,8 @@
     <groupId>com.endpoint.security</groupId>
     <artifactId>endpoint-security-platform</artifactId>
     <version>0.1.0</version>
-    <name>Endpoint Security Platform</name>
-    <description>Endpoint security protection management backend</description>
+    <name>计算机终端安全防护管理系统</name>
+    <description>计算机终端安全防护管理系统 API</description>
 
     <properties>
         <java.version>21</java.version>

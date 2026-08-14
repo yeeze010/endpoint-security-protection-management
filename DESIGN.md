@@ -59,7 +59,7 @@ Vue custom: login card, sidebar nav groups, role switcher, status cards, PageHea
 
 ## Brand voice
 
-- Product name: 终端安全防护管理平台.
+- Product name: 计算机终端安全防护管理系统.
 - Tone: operational, precise, audit-friendly.
 - Banned: vague “smart security” language, fabricated AI agent claims, decorative copy.
 

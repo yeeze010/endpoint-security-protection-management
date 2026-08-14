@@ -1,4 +1,4 @@
-﻿# 功能结构
+# 功能结构
 
 ## 角色范围
 
@@ -9,7 +9,7 @@ System.Collections.Hashtable.Roles
 本项目按照登录后按角色加载菜单、按钮权限和业务数据的方式设计。详细功能目录见总目录：
 
 - [剩余项目功能结构目录](F:\软件开发\剩余项目功能结构目录.md)
-- 对应章节：5. endpoint-security-protection-management 终端安全防护管理系统
+- 对应章节：5. endpoint-security-protection-management 计算机终端安全防护管理系统
 
 ## 落地要求
 
