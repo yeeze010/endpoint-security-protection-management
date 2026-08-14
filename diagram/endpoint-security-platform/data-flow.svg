@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560">
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+  </pattern>
+  <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+  </marker>
+  <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+  </marker>
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
+    .title { fill: #f8fafc; font-size: 20px; font-weight: 700; }
+    .sub { fill: #94a3b8; font-size: 10px; }
+    .label { fill: #f8fafc; font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .small { fill: #cbd5e1; font-size: 9px; text-anchor: middle; }
+    .tiny { fill: #94a3b8; font-size: 8px; text-anchor: middle; }
+    .box { rx: 8; stroke-width: 1.5; }
+  </style>
+</defs>
+<rect width="100%" height="100%" fill="#0f172a"/>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+<text x="36" y="42" class="title">数据流图</text>
+<text x="36" y="62" class="sub">Endpoint Security Protection Management Platform</text>
+<rect x="70" y="160" width="180" height="62" rx="8" fill="#0f172a"/>
+<rect x="70" y="160" width="180" height="62" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="160.0" y="186" class="label">终端 Agent</text>
+<text x="160.0" y="204" class="small">心跳 / 事件 / 文件证据</text>
+<rect x="330" y="130" width="190" height="62" rx="8" fill="#0f172a"/>
+<rect x="330" y="130" width="190" height="62" rx="8" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="425.0" y="156" class="label">接入层校验</text>
+<text x="425.0" y="174" class="small">证书 / 签名 / 幂等</text>
+<rect x="330" y="260" width="190" height="62" rx="8" fill="#0f172a"/>
+<rect x="330" y="260" width="190" height="62" rx="8" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1.5"/>
+<text x="425.0" y="286" class="label">批量事件缓冲</text>
+<text x="425.0" y="304" class="small">Redis Stream / Queue</text>
+<rect x="600" y="130" width="190" height="62" rx="8" fill="#0f172a"/>
+<rect x="600" y="130" width="190" height="62" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="695.0" y="156" class="label">业务处理服务</text>
+<text x="695.0" y="174" class="small">归一化 / 规则匹配</text>
+<rect x="600" y="260" width="190" height="62" rx="8" fill="#0f172a"/>
+<rect x="600" y="260" width="190" height="62" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="695.0" y="286" class="label">任务调度服务</text>
+<text x="695.0" y="304" class="small">策略 / 补丁 / 扫描</text>
+<rect x="870" y="120" width="170" height="62" rx="8" fill="#0f172a"/>
+<rect x="870" y="120" width="170" height="62" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="955.0" y="146" class="label">PostgreSQL</text>
+<text x="955.0" y="164" class="small">资产、告警、审计</text>
+<rect x="870" y="245" width="170" height="62" rx="8" fill="#0f172a"/>
+<rect x="870" y="245" width="170" height="62" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="955.0" y="271" class="label">MinIO</text>
+<text x="955.0" y="289" class="small">证据文件、报表</text>
+<rect x="870" y="370" width="170" height="62" rx="8" fill="#0f172a"/>
+<rect x="870" y="370" width="170" height="62" rx="8" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="955.0" y="396" class="label">报表模型</text>
+<text x="955.0" y="414" class="small">统计聚合与导出</text>
+<rect x="1090" y="245" width="150" height="62" rx="8" fill="#0f172a"/>
+<rect x="1090" y="245" width="150" height="62" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="1165.0" y="271" class="label">管理后台</text>
+<text x="1165.0" y="289" class="small">查询 / 处置 / 导出</text>
+<line x1="250" y1="190" x2="330" y2="161" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="290.0" y="169.5" class="tiny">注册/心跳</text>
+<line x1="250" y1="190" x2="330" y2="291" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="290.0" y="234.5" class="tiny">安全事件</text>
+<line x1="520" y1="161" x2="600" y2="161" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="560.0" y="155.0" class="tiny">可信请求</text>
+<line x1="520" y1="291" x2="600" y2="291" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="560.0" y="285.0" class="tiny">异步消费</text>
+<line x1="790" y1="161" x2="870" y2="151" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="830.0" y="150.0" class="tiny">写业务库</text>
+<line x1="790" y1="291" x2="870" y2="276" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="830.0" y="277.5" class="tiny">写对象</text>
+<line x1="955" y1="182" x2="955" y2="370" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="955.0" y="270.0" class="tiny">统计</text>
+<line x1="1040" y1="151" x2="1090" y2="276" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="1065.0" y="207.5" class="tiny">查询</text>
+<line x1="1040" y1="276" x2="1090" y2="276" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/><text x="1065.0" y="270.0" class="tiny">下载</text>
+</svg>

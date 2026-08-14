@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760">
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+  </pattern>
+  <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+  </marker>
+  <marker id="arrow-cyan" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#22d3ee"/>
+  </marker>
+  <style>
+    text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
+    .title { fill: #f8fafc; font-size: 20px; font-weight: 700; }
+    .sub { fill: #94a3b8; font-size: 10px; }
+    .label { fill: #f8fafc; font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .small { fill: #cbd5e1; font-size: 9px; text-anchor: middle; }
+    .tiny { fill: #94a3b8; font-size: 8px; text-anchor: middle; }
+    .box { rx: 8; stroke-width: 1.5; }
+  </style>
+</defs>
+<rect width="100%" height="100%" fill="#0f172a"/>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+<text x="36" y="42" class="title">系统架构图</text>
+<text x="36" y="62" class="sub">Endpoint Security Protection Management Platform</text>
+<rect x="20" y="90" width="1240" height="610" rx="16" fill="none" stroke="#fbbf24" stroke-dasharray="10,5"/>
+<text x="42" y="116" fill="#fbbf24" font-size="11" font-weight="700">Docker / Nginx / Enterprise Network</text>
+<rect x="60" y="160" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="60" y="160" width="170" height="70" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="145.0" y="186" class="label">管理后台</text>
+<text x="145.0" y="204" class="small">Vue 3 + TypeScript</text>
+<rect x="60" y="280" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="60" y="280" width="170" height="70" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="145.0" y="306" class="label">终端 Agent</text>
+<text x="145.0" y="324" class="small">Windows / Linux / macOS</text>
+<rect x="290" y="220" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="290" y="220" width="170" height="70" rx="8" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="375.0" y="246" class="label">Nginx 网关</text>
+<text x="375.0" y="264" class="small">HTTPS / 静态资源</text>
+<rect x="520" y="120" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="520" y="120" width="170" height="70" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="605.0" y="146" class="label">认证权限服务</text>
+<text x="605.0" y="164" class="small">JWT / RBAC / MFA</text>
+<rect x="520" y="220" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="520" y="220" width="170" height="70" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="605.0" y="246" class="label">资产策略服务</text>
+<text x="605.0" y="264" class="small">资产 / 策略 / 任务</text>
+<rect x="520" y="320" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="520" y="320" width="170" height="70" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="605.0" y="346" class="label">告警处置服务</text>
+<text x="605.0" y="364" class="small">告警 / 工单 / 审计</text>
+<rect x="520" y="420" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="520" y="420" width="170" height="70" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="605.0" y="446" class="label">报表文件服务</text>
+<text x="605.0" y="464" class="small">导出 / 对象文件</text>
+<rect x="780" y="160" width="150" height="70" rx="8" fill="#0f172a"/>
+<rect x="780" y="160" width="150" height="70" rx="8" fill="rgba(251,146,60,0.3)" stroke="#fb923c" stroke-width="1.5"/>
+<text x="855.0" y="186" class="label">Redis</text>
+<text x="855.0" y="204" class="small">缓存 / 限流 / 会话</text>
+<rect x="780" y="280" width="150" height="70" rx="8" fill="#0f172a"/>
+<rect x="780" y="280" width="150" height="70" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="855.0" y="306" class="label">PostgreSQL</text>
+<text x="855.0" y="324" class="small">业务数据 / 审计</text>
+<rect x="780" y="400" width="150" height="70" rx="8" fill="#0f172a"/>
+<rect x="780" y="400" width="150" height="70" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="855.0" y="426" class="label">MinIO</text>
+<text x="855.0" y="444" class="small">证据 / 报表 / 补丁</text>
+<rect x="1000" y="160" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="1000" y="160" width="170" height="70" rx="8" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="1085.0" y="186" class="label">外部系统</text>
+<text x="1085.0" y="204" class="small">SIEM / IAM / CMDB</text>
+<rect x="1000" y="320" width="170" height="70" rx="8" fill="#0f172a"/>
+<rect x="1000" y="320" width="170" height="70" rx="8" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="1085.0" y="346" class="label">通知渠道</text>
+<text x="1085.0" y="364" class="small">邮件 / 短信 / Webhook</text>
+<line x1="230" y1="195" x2="290" y2="255" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="230" y1="315" x2="290" y2="255" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="460" y1="255" x2="520" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="460" y1="255" x2="520" y2="255" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="460" y1="255" x2="520" y2="355" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="690" y1="155" x2="780" y2="195" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="690" y1="255" x2="780" y2="315" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="690" y1="355" x2="780" y2="315" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="690" y1="455" x2="780" y2="435" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="930" y1="195" x2="1000" y2="195" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="930" y1="315" x2="1000" y2="355" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 700">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <style>
+      text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; }
+      .title { fill: #f8fafc; font-size: 20px; font-weight: 700; }
+      .head { fill: #f8fafc; font-size: 12px; font-weight: 700; text-anchor: middle; }
+      .msg { fill: #cbd5e1; font-size: 9px; }
+      .life { stroke: #475569; stroke-dasharray: 6 5; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  <text x="36" y="44" class="title">Agent 与管理端通信时序图</text>
+  <g>
+    <rect x="80" y="90" width="160" height="52" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee"/>
+    <text x="160" y="122" class="head">终端 Agent</text>
+    <line x1="160" y1="142" x2="160" y2="650" class="life"/>
+  </g>
+  <g>
+    <rect x="330" y="90" width="160" height="52" rx="8" fill="rgba(120,53,15,0.3)" stroke="#fbbf24"/>
+    <text x="410" y="122" class="head">Agent Gateway</text>
+    <line x1="410" y1="142" x2="410" y2="650" class="life"/>
+  </g>
+  <g>
+    <rect x="580" y="90" width="170" height="52" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399"/>
+    <text x="665" y="122" class="head">业务服务</text>
+    <line x1="665" y1="142" x2="665" y2="650" class="life"/>
+  </g>
+  <g>
+    <rect x="850" y="90" width="170" height="52" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa"/>
+    <text x="935" y="122" class="head">存储层</text>
+    <line x1="935" y1="142" x2="935" y2="650" class="life"/>
+  </g>
+  <line x1="160" y1="190" x2="410" y2="190" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="190" y="182" class="msg">1. 注册 agent_id / 设备指纹</text>
+  <line x1="410" y1="230" x2="665" y2="230" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="440" y="222" class="msg">2. 校验证书、令牌、组织</text>
+  <line x1="665" y1="270" x2="935" y2="270" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="695" y="262" class="msg">3. 写入终端与 Agent 记录</text>
+  <line x1="410" y1="315" x2="160" y2="315" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="210" y="307" class="msg">4. 返回基线策略版本</text>
+  <line x1="160" y1="370" x2="410" y2="370" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="190" y="362" class="msg">5. 心跳：补丁/病毒/外设/策略版本</text>
+  <line x1="410" y1="410" x2="665" y2="410" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="440" y="402" class="msg">6. 计算差异与待执行任务</text>
+  <line x1="665" y1="450" x2="935" y2="450" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="695" y="442" class="msg">7. 写入状态、风险因子、审计</text>
+  <line x1="665" y1="500" x2="410" y2="500" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="450" y="492" class="msg">8. 返回增量策略和任务</text>
+  <line x1="410" y1="540" x2="160" y2="540" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="210" y="532" class="msg">9. Agent 执行策略/扫描/隔离</text>
+  <line x1="160" y1="595" x2="410" y2="595" stroke="#64748b" marker-end="url(#arrow)"/>
+  <text x="190" y="587" class="msg">10. 回传执行结果与证据文件引用</text>
+</svg>
